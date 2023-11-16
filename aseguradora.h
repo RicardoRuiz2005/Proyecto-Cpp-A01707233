@@ -2,112 +2,45 @@
 realizara el pago por ejemplo el enganche, ademas de saber el tipo de seguro que este tendra, esto con el fin de hacer este complejo metodo
 en algo sencillo de usar */
 
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
+#include"aseguradora.h"
 using namespace std;
 
-class Coche{	
-private:
-	string marca;
-	float costo;	
+int main(){
 	
-public:
-	Coche(string marca, float costo) : marca(marca), costo(costo) {}
+	//Clase coche
+	Coche auto1("Ferrari", 1.4, "Roma", 200);
+	Coche auto2("Porsche", 2, "918", 150);
+	Coche auto3("Mercedes Benz", .5, "Classic", 100);
 	
-	string getMarca()const{
-		return marca;
-	}
+	//Clase personal
+	Personal p1("Jacob", 1244, "empleado");
+	Personal p2("Benjamin", 277, "Jefe");
+	Personal p3("Paolo", 6781, "empleado");
 	
-	float getCosto()const{
-		return costo;
-	}
+	//Class Seguro
+	Seguro ase1("Escencial", 200.5, 4);
+	Seguro ase2("Basico", 150, 3);
+	Seguro ase3("Amplio", 100, 1);
 	
-	void setMarca(string marca){
-		marca = marca;
-	}
+	//Metodos coche
+	cout<<"Metodos de coche"<<endl;
+	auto1.datos();
+	auto2.datos();
+	auto3.datos();
 	
-	void setCosto(float costo){
-		costo = costo;
-	}
+	//Metodos personal
+	cout<<endl<<"Metodos de personal"<<endl;
+	p1.datosPersonal();
+	p2.datosPersonal();
+	p3.datosPersonal();
 	
-	void datos(){
-		cout<<"El costo del coche "<<marca<<" es de "<<costo<<" millones de pesos"<<endl;
-	}
-};
-
-class Pago{
-private:
-	string enganche;
-	int meses;
+	//Metodos seguro
+	cout<<endl<<"Metodos de seguro"<<endl;
+	ase1.datosSeguro();
+	ase2.datosSeguro();
+	ase3.datosSeguro();
 	
-public:
-	Pago(string enganche, int meses) : enganche(enganche), meses(meses){}
-	
-	string getEnganche(){
-		return enganche;
-	}
-	
-	int getMeses(){
-		return meses;
-	}
-	
-	void setEnganche(string enganche){
-		enganche = enganche;
-	}
-	
-	void setMeses(int meses){
-		meses = meses;
-	}
-	
-	void gasto(){
-		if (enganche == "si"){
-			cout<<"El coche "<<enganche<<" tendria enganche a "<<meses<<endl;
-		}
-		
-		else{
-			cout<<"El coche no tendra enganche"<<endl;
-		}
-	}
-};
-
-class Seguro{
-	private:
-		int asegurado, tiempo;
-		float precio;
-	
-	public:
-		Seguro(int asegurado, float precio, int tiempo) : asegurado(asegurado), precio(precio), tiempo(tiempo){}
-		
-	int getAsegurado(){
-		return asegurado;	
-	}
-	
-	float getPrecio(){
-		return precio;
-	}
-	
-	int getTiempo(){
-		return tiempo;
-	}
-	
-	void setAsegurado(int asegurado){
-		asegurado = asegurado;
-	}
-	
-	void setPrecio(float precio){
-		precio = precio;
-	}
-	
-	void setTiempo(int tiempo){
-		tiempo = tiempo;
-	}
-	
-	void t_seguro(){
-		if (asegurado == 1){
-			cout<<"El seguro dura "<<tiempo<<" meses"<<endl;
-		}
-		else{
-			cout<<"El coche no esta asegurado"<<endl;
-		}
-	}
-};
+	return 0;
+}
