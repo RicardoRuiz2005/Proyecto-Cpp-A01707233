@@ -10,19 +10,19 @@ using namespace std;
 int main(){
 	
 	//Clase coche
-	Coche auto1("Ferrari", 1.4);
-	Coche auto2("Porsche", 2);
-	Coche auto3("Mercedes Benz", .5);
+	Coche auto1("Ferrari", 1.4, "Roma", 200);
+	Coche auto2("Porsche", 2, "918", 150);
+	Coche auto3("Mercedes Benz", .5, "Classic", 100);
 	
-	//Clase pago
-	Pago tipo1("si", 9);
-	Pago tipo2("No", 0);
-	Pago tipo3("si", 12);
+	//Clase personal
+	Personal p1("Jacob", 1244, "empleado");
+	Personal p2("Benjamin", 277, "Jefe");
+	Personal p3("Paolo", 6781, "empleado");
 	
 	//Class Seguro
-	Seguro ase1(1, 145.3, 5);
-	Seguro ase2(0, 0, 0);
-	Seguro ase3(1, 200, 12);
+	Seguro ase1("Escencial", 200.5, 4);
+	Seguro ase2("Basico", 150, 3);
+	Seguro ase3("Amplio", 100, 1);
 	
 	//Metodos coche
 	cout<<"Metodos de coche"<<endl;
@@ -30,17 +30,17 @@ int main(){
 	auto2.datos();
 	auto3.datos();
 	
-	//Metodos pago
-	cout<<endl<<"Metodos de pago"<<endl;
-	tipo1.gasto();
-	tipo2.gasto();
-	tipo3.gasto();
+	//Metodos personal
+	cout<<endl<<"Metodos de personal"<<endl;
+	p1.datosPersonal();
+	p2.datosPersonal();
+	p3.datosPersonal();
 	
 	//Metodos seguro
 	cout<<endl<<"Metodos de seguro"<<endl;
-	ase1.t_seguro();
-	ase2.t_seguro();
-	ase3.t_seguro();
+	ase1.datosSeguro();
+	ase2.datosSeguro();
+	ase3.datosSeguro();
 	
 	return 0;
 }
