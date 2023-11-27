@@ -146,12 +146,12 @@ class Alta : public Coche{
 	
 	void probar(){
 		float nv = velocidad / 2;
-		cout<<"El coche "<<tipoCoche<<"avanza a "<<nv<<"km/h durante un largo periodo"<<endl;
+		cout<<"El coche "<<tipoCoche<<" avanza a "<<nv<<"km/h durante un largo periodo"<<endl;
 		if(nv >= 60){
 			cout<<"El coche es de buena calidad"<<endl;
 		}
 		else{
-			cout<<"Es mas recomendable comprar otro modelo"<<endl;
+			cout<<"Es mas recomendable comprar otro modelo \n"<<endl;
 		}
 	}
 
