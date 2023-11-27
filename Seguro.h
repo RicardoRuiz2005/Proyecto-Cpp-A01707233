@@ -43,6 +43,6 @@ class Seguro{
 	}
 	
 	void datosSeguro(){
-		cout<<"El tipo de seguro es: "<<tipo<<", este seguro dura "<<tiempo<<" anios con un costo de '"<<precio<<"'"<<endl;
+		cout<<"El tipo de seguro es: "<<tipo<<", este seguro dura "<<tiempo<<" anios con un costo de '"<<precio<<"' dolares"<<endl;
 	}
 };
