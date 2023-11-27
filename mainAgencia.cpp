@@ -164,7 +164,7 @@ int main(){
 								cout<<"\n";
 								ase2.datosSeguro();
 								cout<<"\n";
-								ulticiclo = false;
+								ultciclo = false;
 							}
 							else{
 								cout<<"Estas saliendo de la pestana de seguros \n"<<endl;
