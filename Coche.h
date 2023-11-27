@@ -20,14 +20,7 @@ protected:
 public:
 	//Coche(){};
 	Coche(string mar, float cost, string tip, int vel) : marca(mar), costo(cost), tipoCoche(tip), velocidad(vel) {}
-	/*void agregarSeguro(string, float, int)
-	
-	void Coche::agregarSeguro(string tip, float pre, int tiem){
-		seg[1] = Seguro(tip, pre, tiem);
-	}
-	seg[1].
-	*/
-	
+
 	string getMarca()const{
 		return marca;
 	}
@@ -52,6 +45,10 @@ public:
 	}
 	void setVelocidad(int vel){
 		velocidad = vel;
+	}
+	
+	void importante(){
+		cout<<tipoCoche<<" de la marca "<<marca<<endl;
 	}
 	
 	void datos(){
