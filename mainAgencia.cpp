@@ -76,22 +76,41 @@ int main(){
 					}
 					
 					else if(info1 == 2){
-						int seg;
+						int seg, pru;
 						bool ultciclo = true;
 						cout<<"Los coches y sus caracteristicas que hay en esta agencia son: "<< endl;
 						auto1->datos();
 						auto2->datos();
 						aut1->datos();
 						
+						//Posibilidad de probar coche de gama alta
+						cout<<"\nLos autos de alta gama se pueden probar."<<endl;
+						cout<<"Le gustaria probar los autos de gama alta?: \n1- Si \n2- No: \nEscoga una opcion: ";
+						cin>>pru;
+						cout<<"\n";
+						
+						if(pru == 1){
+							auto1->probar();
+							cout<<"\n";
+							auto2->probar();
+							cout<<"\n";
+						}
+						
+						else{
+							cout<<"Has decidido no probar el coche";
+						}
+						
 						while(ultciclo == true){
 							cout<<"Puedes ver los seguros en caso de comprar un coche"<<endl;
 							cout<<"Te interesa ver los seguros?: \n1- Si \n2- No"<<endl;
 							cin>>seg;
 							if(seg ==1){
-								cout<<"Los seguros son los siguientes: "<<endl;
+								cout<<"Los seguros son los siguientes: \n"<<endl;
 								ase2.datosSeguro();
+								cout<<"\n";
 								ase3.datosSeguro();
 								cout<<"\n";
+								ultciclo = false;
 							}
 							else{
 								cout<<"Estas saliendo de la pestana de seguros \n"<<endl;
@@ -115,7 +134,7 @@ int main(){
 					}
 					
 					else if(info1 == 2){
-						int seg;
+						int seg, pru;
 						bool ultciclo = true;						
 						cout<<"Los coches y sus caracteristicas que hay en esta agencia son: "<<endl;
 						auto3->datos();
@@ -124,15 +143,28 @@ int main(){
 						co1->datos();
 						co3->datos();
 						
+						//Posibilidad de probar coche de gama alta
+						cout<<"\nLos autos de alta gama se pueden probar."<<endl;
+						cout<<"Le gustaria probar los autos de gama alta?: \n1- Si \n2- No: \nEscoga una opcion: ";
+						cin>>pru;
+						cout<<"\n";
+						
+						if(pru == 1){
+							auto3->probar();
+							cout<<"\n";
+						}
+						
 						while(ultciclo == true){
 							cout<<"Puedes ver los seguros en caso de comprar un coche"<<endl;
 							cout<<"Te interesa ver los seguros?: \n1- Si \n2- No"<<endl;
 							cin>>seg;
 							if(seg ==1){
-								cout<<"Los seguros son los siguientes: "<<endl;
+								cout<<"Los seguros son los siguientes: \n"<<endl;
 								ase1.datosSeguro();
+								cout<<"\n";
 								ase2.datosSeguro();
 								cout<<"\n";
+								ulticiclo = false;
 							}
 							else{
 								cout<<"Estas saliendo de la pestana de seguros \n"<<endl;
