@@ -1,36 +1,70 @@
-# Elección de `std::sort` para el Ordenamiento y del Árbol Binario de Búsqueda (BST)
+Elección de std::sort para el Ordenamiento y del Árbol Binario de Búsqueda (BST)
+1. Elección de std::sort para Ordenar
+El algoritmo std::sort de la biblioteca estándar de C++ fue seleccionado para ordenar los jugadores por su ELO debido a su eficiencia y optimización. Es un método híbrido que combina características de Quick Sort, Heap Sort, y Insertion Sort, lo que lo hace adaptable a diferentes tamaños y configuraciones de datos. A continuación, se describe detalladamente su funcionamiento, análisis de complejidad y comparación con otros métodos de ordenamiento.
 
-## 1. Elección de `std::sort` para Ordenar
+Funcionamiento de std::sort
+Divide la lista de datos en particiones usando Quick Sort.
+Optimiza las particiones pequeñas con Insertion Sort.
+Utiliza Heap Sort como respaldo para evitar los problemas del peor caso de Quick Sort.
+Análisis de Complejidad de std::sort
+Mejor Caso:
 
-El algoritmo `std::sort` de la biblioteca estándar de C++ fue seleccionado para ordenar los jugadores por su ELO debido a su eficiencia y optimización. Es un método híbrido que combina características de **Quick Sort**, **Heap Sort**, y **Insertion Sort**, adaptándose a diferentes tamaños y configuraciones de datos.
+Se da cuando los datos están casi completamente ordenados. std::sort aprovecha esta situación reduciendo las operaciones necesarias en cada partición.
+Complejidad: 
+𝑂
+(
+𝑛
+log
+⁡
+𝑛
+)
+O(nlogn).
+Caso Promedio:
 
-### Funcionamiento de `std::sort`
-- Divide la lista de datos en particiones usando Quick Sort.
-- Optimiza las particiones pequeñas con Insertion Sort.
-- Utiliza Heap Sort como respaldo para evitar los problemas del peor caso de Quick Sort.
+Se da con datos aleatorios. Las particiones son equilibradas en la mayoría de los casos, y el número de comparaciones se mantiene dentro de 
+𝑂
+(
+𝑛
+log
+⁡
+𝑛
+)
+O(nlogn).
+Complejidad: 
+𝑂
+(
+𝑛
+log
+⁡
+𝑛
+)
+O(nlogn).
+Peor Caso:
 
-### Análisis de Complejidad de `std::sort`
-1. **Mejor Caso**  
-   - Se da cuando los datos están casi completamente ordenados. `std::sort` aprovecha esta situación reduciendo las operaciones necesarias en cada partición.  
-   - **Complejidad:** \(O(n \log n)\).  
+Se presenta cuando las particiones son extremadamente desequilibradas, como con una lista completamente ordenada o inversamente ordenada. Sin embargo, std::sort mitiga este caso con su implementación híbrida.
+Complejidad: 
+𝑂
+(
+𝑛
+2
+)
+O(n 
+2
+ ), pero rara vez ocurre debido a las optimizaciones de la biblioteca estándar.
+Implementación en el Código
+En el proyecto, std::sort se utiliza para ordenar los jugadores por su ELO después de la simulación del torneo. El código es el siguiente:
 
-2. **Caso Promedio**  
-   - Se da con datos aleatorios. Las particiones son equilibradas en la mayoría de los casos, y el número de comparaciones se mantiene dentro de \(O(n \log n)\).  
-   - **Complejidad:** \(O(n \log n)\).  
-
-3. **Peor Caso**  
-   - Se presenta cuando las particiones son extremadamente desequilibradas, como con una lista completamente ordenada o inversamente ordenada. Sin embargo, `std::sort` mitiga este caso con su implementación híbrida.  
-   - **Complejidad:** \(O(n^2)\), pero rara vez ocurre debido a las optimizaciones de la biblioteca estándar.  
-
-### Implementación en el Código
-En el proyecto, `std::sort` se utiliza para ordenar los jugadores por su ELO después de la simulación del torneo. El código es el siguiente:
-
-```cpp
+cpp
+Copiar código
 void OrdenarELO(vector<Jugador>& jugadores) {
     sort(jugadores.begin(), jugadores.end(), [](const Jugador& a, const Jugador& b) {
         return a.elo > b.elo; // Orden descendente por ELO.
     });
 }
+Aquí:
+
+jugadores.begin() y jugadores.end() definen el rango a ordenar.
+La función lambda [](const Jugador& a, const Jugador& b) define el criterio de orden (mayor a menor ELO).
 Ejemplo con Datos del Proyecto
 Jugadores antes del ordenamiento:
 
@@ -57,7 +91,8 @@ log
 )
 O(nlogn) en todos los casos. Es estable, lo que significa que mantiene el orden relativo de los elementos con valores iguales. Sin embargo, tiene un mayor consumo de memoria porque requiere espacio adicional para almacenar las sublistas durante la fusión.
 
-Código Adaptado con Merge Sort
+Código Adaptado con Merge Sort:
+
 cpp
 Copiar código
 void Merge(vector<Jugador>& jugadores, int left, int mid, int right) {
@@ -84,7 +119,8 @@ void MergeSort(vector<Jugador>& jugadores, int left, int right) {
         Merge(jugadores, left, mid, right);
     }
 }
-Comparación de Complejidad
+Comparación de Complejidad:
+
 std::sort:
 Promedio: 
 𝑂
@@ -166,7 +202,7 @@ Un BST organiza los datos de manera que:
 Los valores menores que la raíz están en el subárbol izquierdo.
 Los valores mayores están en el subárbol derecho.
 Análisis de Complejidad del BST
-Mejor Caso
+Mejor Caso:
 
 Se da con un árbol balanceado. Las inserciones y búsquedas recorren niveles proporcionales a 
 log
@@ -181,7 +217,7 @@ log
 𝑛
 )
 O(logn).
-Caso Promedio
+Caso Promedio:
 
 En árboles semibalanceados, las operaciones aún tienden a 
 𝑂
@@ -199,7 +235,7 @@ log
 𝑛
 )
 O(logn).
-Peor Caso
+Peor Caso:
 
 Ocurre en un árbol completamente desbalanceado (similar a una lista enlazada).
 Complejidad: 
@@ -248,3 +284,52 @@ Copiar código
         2852
        /    \
     2793    2811
+Comparación con AVL Tree
+Un AVL Tree es un BST balanceado automáticamente. Mantiene su altura cercana a 
+log
+⁡
+𝑛
+logn mediante rotaciones tras cada inserción o eliminación. Esto mejora el peor caso, pero añade complejidad a las operaciones.
+
+Comparación de Complejidad:
+
+BST:
+
+Promedio: 
+𝑂
+(
+log
+⁡
+𝑛
+)
+O(logn).
+Peor: 
+𝑂
+(
+𝑛
+)
+O(n).
+AVL Tree:
+
+Promedio: 
+𝑂
+(
+log
+⁡
+𝑛
+)
+O(logn).
+Peor: 
+𝑂
+(
+log
+⁡
+𝑛
+)
+O(logn).
+Desventaja: Rotaciones frecuentes aumentan el costo de las inserciones.
+En este proyecto, el BST es suficiente porque no se manejan grandes volúmenes de datos y su simplicidad facilita la implementación.
+
+Conclusión
+std::sort fue elegido por su eficiencia promedio, adaptabilidad y menor consumo de memoria en comparación con Merge Sort.
+BST es ideal para organizar jugadores en este proyecto debido a su simplicidad y eficiencia en datos moderados, mientras que un AVL Tree añade complejidad innecesaria para este contexto.
