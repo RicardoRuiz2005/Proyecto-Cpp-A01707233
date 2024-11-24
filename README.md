@@ -72,16 +72,10 @@ En este avance, se realizaron ajustes clave para optimizar el programa y ampliar
 1. **Optimización del Árbol BST**  
    Se añadió la función `ImprimirJugadoresDescendente` para visualizar jugadores de mayor a menor ELO, mejorando la presentación de los resultados en el menú.
 
-2. **Validación y Normalización**  
-   Se reforzó la validación al agregar jugadores, asegurando que el ELO esté en el rango permitido (1 a 4000). Además, se optimizó la función `Trim` para evitar duplicados al normalizar nombres.
-
-3. **Carga de Jugadores desde Archivos**  
+2. **Carga de Jugadores desde Archivos**  
    Se mejoró la función de carga desde `jugadores.txt`, validando el formato y evitando registros duplicados. Los jugadores se añaden al vector y al BST.
 
-4. **Simulación de Torneo Mejorada**  
-   Se ajustaron las probabilidades de victoria y empate para hacerlas más representativas, considerando diferencias de ELO.
-
-5. **Nueva Función en el Menú**  
+3. **Nueva Función en el Menú**  
    Se agregó la opción de visualizar jugadores en orden descendente utilizando el BST.
 
 ---
